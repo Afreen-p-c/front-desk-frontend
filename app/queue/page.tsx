@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/app/components/Navbar";
 
@@ -16,25 +16,13 @@ export default function QueuePage() {
   const [patients, setPatients] = useState([]);
   const [name, setName] = useState("");
 
-  // Load patients from localStorage when the page loads
-  useEffect(() => {
-    const savedPatients = localStorage.getItem("patientsQueue");
-    if (savedPatients) {
-      setPatients(JSON.parse(savedPatients));
-    }
-  }, []);
-
-  // Save patients to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem("patientsQueue", JSON.stringify(patients));
-  }, [patients]);
-
   const addPatient = () => {
     if (!name.trim()) return;
     const newPatient = {
       id: Date.now(),
       name,
       status: "Waiting",
+      priority: false,
     };
     setPatients([newPatient, ...patients]);
     setName("");
@@ -47,11 +35,19 @@ export default function QueuePage() {
     setPatients(updated);
   };
 
+  const markUrgent = (id) => {
+    const updated = patients.map((p) =>
+      p.id === id ? { ...p, priority: true } : p
+    );
+    setPatients(updated);
+  };
+
   return (
     <div className="min-h-screen bg-[#f4f4f5] p-6 text-gray-800">
       <Navbar />
       <h1 className="text-3xl font-semibold mb-6 text-[#1e293b]">Patient Queue</h1>
 
+      {/* Input to add patient */}
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <input
           type="text"
@@ -68,6 +64,7 @@ export default function QueuePage() {
         </button>
       </div>
 
+      {/* Patient List */}
       {patients.length === 0 ? (
         <p className="text-gray-500">No patients in queue.</p>
       ) : (
@@ -75,15 +72,22 @@ export default function QueuePage() {
           {patients.map((patient, index) => (
             <li
               key={patient.id}
-              className="bg-white p-4 rounded shadow-sm border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between"
+              className={`bg-white p-4 rounded shadow-sm border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between ${
+                patient.priority ? "border-red-500" : ""
+              }`}
             >
               <div>
                 <p className="font-medium text-lg">
                   #{patients.length - index} &nbsp; {patient.name}
                 </p>
-                <p className="text-sm text-gray-500">Status: {patient.status}</p>
+                <p className="text-sm text-gray-500">
+                  Status: {patient.status}
+                  {patient.priority && (
+                    <span className="ml-2 text-red-600 font-semibold">(Urgent)</span>
+                  )}
+                </p>
               </div>
-              <div className="flex gap-2 mt-2 sm:mt-0">
+              <div className="flex gap-2 mt-2 sm:mt-0 flex-wrap">
                 <button
                   onClick={() => updateStatus(patient.id, "Waiting")}
                   className="px-3 py-1 bg-gray-500 text-white rounded text-sm hover:bg-gray-600"
@@ -101,6 +105,12 @@ export default function QueuePage() {
                   className="px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700"
                 >
                   Completed
+                </button>
+                <button
+                  onClick={() => markUrgent(patient.id)}
+                  className="px-3 py-1 bg-red-600 text-white rounded text-sm hover:bg-red-700"
+                >
+                  Mark Urgent
                 </button>
               </div>
             </li>
