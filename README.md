@@ -21,6 +21,8 @@ This is a modern front desk system built using **Next.js**, designed for clinics
 ## Dashboard Page
 
 ![Dashboard Page](https://github.com/Afreen-p-c/front-desk-frontend/blob/main/public/screenshots/dashboard.png?raw=true)
+## Appointments page
+![Appointments Page](https://github.com/Afreen-p-c/front-desk-frontend/blob/main/public/screenshots/appointments.png?raw=true)
 
 ## 📸 Screenshots
 
