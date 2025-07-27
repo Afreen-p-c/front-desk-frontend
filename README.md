@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Front Desk Clinic Management System
 
-## Getting Started
+This is a modern front desk system built using **Next.js**, designed for clinics to manage appointments, patient queues, and doctor schedules efficiently.
 
-First, run the development server:
+---
+
+## 🌟 Features
+
+- 📅 Book, reschedule, and cancel appointments
+- 🧑‍⚕️ View and manage doctor listings
+- 🧑‍💼 Maintain a dynamic patient queue
+- 🧾 Collect and store patient details
+- 🔐 Login system with session management
+- 🎨 Clean, responsive UI with Tailwind CSS
+
+---
+
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](public/screenshots/dashboard.png)
+
+### Appointments
+![Appointments](public/screenshots/appointments.png)
+
+### Patient Queue
+![Queue](public/screenshots/queue.png)
+
+### Patient Details
+![Patient Details](public/screenshots/patient-details.png)
+
+---
+
+## 🎥 Demo Video
+
+[▶️ Watch Front Desk Demo](public/screenshots/Front_Desk.mp4)
+
+---
+
+## 🚀 Tech Stack
+
+- **Framework:** Next.js 15 (App Router, TypeScript)
+- **Styling:** Tailwind CSS
+- **Backend/Data:** Local Storage (for demo), MySQL (optional)
+- **Version Control:** Git & GitHub
+
+---
+
+## 📦 Installation (For Developers)
 
 ```bash
+git clone https://github.com/Afreen-p-c/front-desk-frontend.git
+cd front-desk-frontend
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
