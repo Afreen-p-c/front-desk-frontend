@@ -14,6 +14,10 @@ This is a modern front desk system built using **Next.js**, designed for clinics
 - 🎨 Clean, responsive UI with Tailwind CSS
 
 ---
+## Login Page
+
+![Login Page](https://github.com/Afreen-p-c/front-desk-frontend/blob/main/login.png?raw=true)
+
 
 ## 📸 Screenshots
 
