@@ -17,7 +17,9 @@ const Page = () => {
     date: '',
     time: '',
   });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+ const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+) => {
   setForm({ ...form, [e.target.name]: e.target.value });
 };
 
