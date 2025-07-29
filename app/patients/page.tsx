@@ -64,7 +64,7 @@ const Page = () => {
           <select
             name="gender"
             value={form.gender}
-            onChange={handleChange}
+            onChange={handleChange as React.ChangeEventHandler<HTMLSelectElement>}
             className="border p-2 w-full"
             required
           >
